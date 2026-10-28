@@ -1,12 +1,8 @@
 # every-other-skill
 
-The skill bank and sandbox for our OtherSkill setup. Read README.md for the layout.
+Skill storage for OtherSkill. `otherskill.config.json` holds the categories; `.otherskill/bank/<category>/<skill>--<id>/` holds full skill copies with license and `.otherskill.json` provenance.
 
-- `skillset.json` is the source of truth for the bank. Never edit `.otherskill/bank/`, `skills.lock.json` or the README skill table by hand; change `skillset.json` (or `otherskill.config.json` for categories) and run `bun run sync`.
-- Skills authored here live in `skills/<name>/` and are listed in `skillset.json` with `"local": true`.
+- Add skills with `otherskill add github:owner/repo --path <dir> --category <id> --scope project --cwd .`; never hand-edit files inside a bank skill.
+- Keep the README skill table in sync with the bank when adding or removing skills.
 - Check a source's license before adding it; skip non-commercial licenses.
-- Skill experiments use skill-up (runner) and skill-ab-eval (judge), driven by `skills/test-skill`. Write `examples/<name>/evals/rubric.md` before running, and never change it after seeing outputs.
-- Never commit `.sandbox/` output or any API key.
-- Before reporting: `bun test` and `bun run check`.
-
-Default to Bun instead of Node.js: `bun <file>`, `bun test`, `bun install`, `bun run <script>`, `bunx`. Bun loads .env automatically. Prefer `Bun.file`, `Bun.spawn` and `Bun.$` where they fit.
+- Test skills with skill-up (`skill-upper` skill), not custom scripts.

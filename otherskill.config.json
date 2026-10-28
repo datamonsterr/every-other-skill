@@ -3,8 +3,9 @@
   "model": "inception/mercury-decide:free",
   "scope": "project",
   "agent": "claude",
-  "agents": ["claude"],
-  "portableHooks": true,
+  "agents": [
+    "claude"
+  ],
   "categories": [
     {
       "id": "product/discovery",
