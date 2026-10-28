@@ -1,0 +1,43 @@
+# Generated from the experiment design; one skill-up config per variant.
+# Variant: design-category (7 skills)
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/accessibility--93609c3232b6985f
+    target: .claude/skills/accessibility
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/design-system--51f47220b9cf91f1
+    target: .claude/skills/design-system
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/design-taste-frontend--2c6b0d96af2a8f61
+    target: .claude/skills/design-taste-frontend
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/frontend-design--0d66d75a20d565c1
+    target: .claude/skills/frontend-design
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/make-interfaces-feel-better--18e056e71e98e27e
+    target: .claude/skills/make-interfaces-feel-better
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/motion-foundations--068d67044ef07323
+    target: .claude/skills/motion-foundations
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/web-design-guidelines--c31a853365c2ac2b
+    target: .claude/skills/web-design-guidelines
+engine:
+  name: claude_code
+  model: {}
+cases:
+  files:
+    - evals/cases/landing.yaml
+  defaults:
+    collect_artifacts:
+      - "**/*.html"
+      - "**/*.css"
+  parallelism: 1
+benchmark:
+  enabled: false
+report:
+  formats: [json, html]
+  artifacts: [transcript]

@@ -1,1 +1,0 @@
-Read SPEC.md and design the system architecture for this feature. Write docs/ARCHITECTURE.md (modules, their responsibilities and interfaces, data model, sync protocol, failure handling) and record each significant decision as an ADR under docs/adr/. Do not write implementation code.

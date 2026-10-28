@@ -15,5 +15,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["scripts/**/*.ts", "sandbox/**/*.ts", "tests/**/*.ts"]
+  "include": ["scripts/**/*.ts", "tests/**/*.ts"]
 }

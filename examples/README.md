@@ -1,19 +1,34 @@
 # Examples
 
-One small project per skill set, each with experiments that compare skill sets on the same prompt.
+One small project per skill set. Each is a [skill-up](https://github.com/alibaba/skill-up) suite that runs the same task once per skill set:
 
-| Example | Project | Experiments |
-| --- | --- | --- |
-| `product-discovery` | `BRIEF.md` for a corner-shop checkout app | `discovery-skills.json`: none vs PM skills vs `product-lens` vs `product/discovery` |
-| `landing-page` | `PRODUCT.md` + empty `index.html` for a coffee roastery | `taste.json`: none vs `frontend-design` vs `design-taste-frontend` vs both; `design-category.json`: taste vs whole `design/frontend` |
-| `architecture` | `SPEC.md` for offline-first order sync | `architecture-skills.json`: none vs Matt Pocock vs ECC vs `architecture` |
-| `techstack` | `REQUIREMENTS.md` for a shop assistant service | `techstack-skills.json`: none vs research-first vs `techstack` |
-| `web-app` | Vite + React + TS app with product data | `web-skills.json`: none vs Vercel React skills vs `web` (check: build, capture: screenshot) |
-| `mobile-app` | Expo Router app with product data | `mobile-skills.json`: none vs Expo vs Callstack vs `mobile` (check: typecheck) |
-
-```sh
-bun sandbox/run.ts examples/<example>/experiments/<experiment>.json --dry-run
-bun sandbox/run.ts examples/<example>/experiments/<experiment>.json --runs 2 --judge
+```text
+examples/<name>/
+├── project/             # starting files, copied fresh into every run
+└── evals/
+    ├── rubric.md        # written first: question, variants, task, criteria (0-10), assertions
+    ├── cases/<case>.yaml
+    ├── scripts/check.sh # optional script judge (build / typecheck)
+    ├── baseline.yaml    # skills: []
+    └── <variant>.yaml   # one skill-up config per skill set
 ```
 
-Each folder holds `project/` (copied fresh into every run), `prompts/` and `experiments/`. Record verdicts in `examples/<example>/RESULTS.md` (the `test-skill` skill describes the format). To add an example, keep the project tiny, give the prompt no hints about any skill, and add a rubric a reviewer can score from the output alone.
+| Example | Project | Variants |
+| --- | --- | --- |
+| `product-discovery` | `BRIEF.md` for a corner-shop checkout app | baseline, pm-skills, product-lens, discovery-category |
+| `landing-page` | `PRODUCT.md` + empty `index.html` for a coffee roastery | baseline, frontend-design, taste, frontend-design+taste, design-category |
+| `architecture` | `SPEC.md` for offline-first order sync | baseline, pocock, ecc, architecture-category |
+| `techstack` | `REQUIREMENTS.md` for a shop assistant service | baseline, research-first, techstack-category |
+| `web-app` | Vite + React + TS app with product data | baseline, vercel, web-category |
+| `mobile-app` | Expo Router app with product data | baseline, expo, callstack, mobile-category |
+
+Run one experiment, then judge it in Claude Code with `test-skill` (which uses `skill-ab-eval`):
+
+```sh
+ex=examples/web-app
+for f in $ex/evals/*.yaml; do
+  skill-up run "$f" --model sonnet --iteration 2 --output-dir ".sandbox/$(basename $ex)/$(basename "$f" .yaml)" || true
+done
+```
+
+To add an example: write `rubric.md` first, keep the project tiny, give the prompt no hints about any skill, copy a variant config and change only `skills`, then run `bun test`. Record verdicts in `examples/<name>/RESULTS.md`.

@@ -9,7 +9,6 @@
     "list": "bun scripts/list.ts",
     "install:global": "bun scripts/install-global.ts",
     "install:project": "bun scripts/install-project.ts",
-    "sandbox": "bun sandbox/run.ts",
     "test": "bun test tests/",
     "typecheck": "tsc --noEmit",
     "format": "biome format --write .",

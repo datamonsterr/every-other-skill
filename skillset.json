@@ -545,6 +545,26 @@
       ]
     },
     {
+      "repo": "alibaba/skill-up",
+      "label": "skill-up (skill eval runner)",
+      "skills": [
+        {
+          "path": "skills/skill-upper",
+          "categories": ["skills"]
+        }
+      ]
+    },
+    {
+      "repo": "cskwork/skill-ab-eval",
+      "label": "skill-ab-eval (blind skill judge)",
+      "skills": [
+        {
+          "path": "skills/skill-ab-eval",
+          "categories": ["skills"]
+        }
+      ]
+    },
+    {
       "local": true,
       "label": "Authored in this repository",
       "skills": [

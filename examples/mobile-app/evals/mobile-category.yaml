@@ -1,0 +1,75 @@
+# Generated from the experiment design; one skill-up config per variant.
+# Variant: mobile-category (17 skills)
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/accessibility--93609c3232b6985f
+    target: .claude/skills/accessibility
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/android-clean-architecture--095390f872c201db
+    target: .claude/skills/android-clean-architecture
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/dart-flutter-patterns--61d5c212eca135ca
+    target: .claude/skills/dart-flutter-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/eas-app-stores--245a262237b779b0
+    target: .claude/skills/eas-app-stores
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-animation--ae4e7b53369ad699
+    target: .claude/skills/expo-animation
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-data-fetching--755fdeda182c2d8b
+    target: .claude/skills/expo-data-fetching
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-design-system--7cf0d49999ba52e6
+    target: .claude/skills/expo-design-system
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-native-ui--0acdbdf7286c5e61
+    target: .claude/skills/expo-native-ui
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-overview--7980dbc02c879188
+    target: .claude/skills/expo-overview
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-project-structure--fb820a628c9ef1b8
+    target: .claude/skills/expo-project-structure
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-router--3297cdd65e2c2ada
+    target: .claude/skills/expo-router
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/expo-upgrade--8ff373cb9c96c48a
+    target: .claude/skills/expo-upgrade
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/react-native-best-practices--b278c7b46a7d49ae
+    target: .claude/skills/react-native-best-practices
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/react-native-patterns--15c52c6f1d769a78
+    target: .claude/skills/react-native-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/react-navigation--2c7ab16dc957a5cf
+    target: .claude/skills/react-navigation
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/swiftui-patterns--e08e71e798786d55
+    target: .claude/skills/swiftui-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/mobile/vercel-react-native-skills--464e69a5d3549a61
+    target: .claude/skills/vercel-react-native-skills
+engine:
+  name: claude_code
+  model: {}
+cases:
+  files:
+    - evals/cases/till.yaml
+  defaults:
+    collect_artifacts:
+      - "app/**"
+      - "*.ts"
+      - "*.tsx"
+      - "package.json"
+  parallelism: 1
+benchmark:
+  enabled: false
+report:
+  formats: [json, html]
+  artifacts: [transcript]

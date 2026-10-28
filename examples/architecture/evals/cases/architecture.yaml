@@ -1,0 +1,20 @@
+id: architecture
+title: "Architecture for offline-first order sync"
+input:
+  prompt: |
+    Read SPEC.md and design the system architecture for this feature. Write docs/ARCHITECTURE.md (modules, their responsibilities and interfaces, data model, sync protocol, failure handling) and record each significant decision as an ADR under docs/adr/. Do not write implementation code.
+context:
+  repo_fixture: project
+  git:
+    init: true
+constraints:
+  timeout_seconds: 1500
+  max_turns: 50
+expect:
+  exit_code: 0
+  files_exist:
+    - docs/ARCHITECTURE.md
+judge:
+  type: rule_based
+  success:
+    - exit_code: 0

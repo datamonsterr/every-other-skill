@@ -1,0 +1,82 @@
+# Generated from the experiment design; one skill-up config per variant.
+# Variant: techstack-category (20 skills)
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/axum--e431d7447689aa91
+    target: .claude/skills/axum
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/bun-api--6316c46fda128c9b
+    target: .claude/skills/bun-api
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/bun-cli--660ccccb7433f147
+    target: .claude/skills/bun-cli
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/coding-guidelines--0425418b7f18b278
+    target: .claude/skills/coding-guidelines
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/database-migrations--e6248db9294249d9
+    target: .claude/skills/database-migrations
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/deployment-patterns--d270dedbb0563ef1
+    target: .claude/skills/deployment-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/docker-patterns--1d54d467ca4412d9
+    target: .claude/skills/docker-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/domain-cli--b39a8d4ddbbc601e
+    target: .claude/skills/domain-cli
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/domain-web--0d72f17fbf593597
+    target: .claude/skills/domain-web
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/m06-error-handling--ced88ee94c1c537d
+    target: .claude/skills/m06-error-handling
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/m07-concurrency--bb2a4c00c9377208
+    target: .claude/skills/m07-concurrency
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/mcp-builder--7f350fc08484f378
+    target: .claude/skills/mcp-builder
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/openrouter--47c0ba77a8dd01f1
+    target: .claude/skills/openrouter
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/postgres-patterns--88b1054a33af6c3f
+    target: .claude/skills/postgres-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/prototype--7b59191e267ff6ec
+    target: .claude/skills/prototype
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/research--97e9902009e55cf3
+    target: .claude/skills/research
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/rusqlite--9a073f55c4ae4528
+    target: .claude/skills/rusqlite
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/rust/rust-patterns--06d0d524889eec18
+    target: .claude/skills/rust-patterns
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/search-first--c888e32d6fbad813
+    target: .claude/skills/search-first
+  - source: local_path
+    path: ../../.otherskill/bank/techstack/typescript-best-practices--025d42d3bcfe29d5
+    target: .claude/skills/typescript-best-practices
+engine:
+  name: claude_code
+  model: {}
+cases:
+  files:
+    - evals/cases/stack.yaml
+  defaults:
+    collect_artifacts:
+      - "**/*.md"
+      - "prototype/**"
+  parallelism: 1
+benchmark:
+  enabled: false
+report:
+  formats: [json, html]
+  artifacts: [transcript]

@@ -1,0 +1,20 @@
+id: landing
+title: "Landing page for a coffee roastery"
+input:
+  prompt: |
+    Build the marketing landing page for the business in PRODUCT.md. Replace index.html with the finished page. Use plain HTML and CSS (inline or in styles.css next to it); no build step and no external JavaScript frameworks. It must work at phone and desktop widths. Use only facts from PRODUCT.md.
+context:
+  repo_fixture: project
+  git:
+    init: true
+constraints:
+  timeout_seconds: 1800
+  max_turns: 60
+expect:
+  exit_code: 0
+  files_exist:
+    - index.html
+judge:
+  type: rule_based
+  success:
+    - exit_code: 0

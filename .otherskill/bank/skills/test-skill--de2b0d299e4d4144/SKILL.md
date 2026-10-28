@@ -1,93 +1,74 @@
 ---
 name: test-skill
-description: A/B test agent skills and skill sets in the every-other-skill sandbox. Use when asked whether a skill helps, to compare a skill against no skill or against another skill (for example frontend-design with and without design-taste-frontend), to benchmark a category's skill set, to decide which skills to keep in the bank, or to write an experiment JSON for sandbox/run.ts.
+description: A/B test agent skills and skill sets in every-other-skill. The rubric comes first, skill-up runs every variant without supervision, then skill-ab-eval judges the outputs blind in the same session. Use when asked whether a skill helps, to compare a skill with no skill or with another skill (for example frontend-design with and without design-taste-frontend), to benchmark a category, or to decide which skills stay in the bank.
 ---
 
 # Test a skill
 
-Answer one question per experiment: **does this skill set change the result for this kind of prompt, and is the change better?** Run the same prompt on the same project once per variant; only the visible skills differ.
+One experiment answers one question: **does this skill set change the result for this kind of task, and is the change better?** Every variant runs the same case on the same project. Only the installed skills differ.
 
-## 1. Frame the question
+Tools (do not reimplement them):
 
-Write it down before touching files:
+- [skill-up](https://github.com/alibaba/skill-up) runs the variants: a fresh workspace per run, skills installed into `.claude/skills`, Claude Code headless with hooks disabled, workspace files collected. The `skill-upper` skill has the full reference.
+- [skill-ab-eval](https://github.com/cskwork/skill-ab-eval) judges the outputs. Use its agent-native protocol: fresh, blind judge subagents with neutral labels.
 
-- **Skill under test** and the **control** (usually `baseline`, no skills).
-- **Prompt**: one realistic task where the skill should matter. Do not mention the skill or its vocabulary in the prompt; that leaks the answer to the control.
-- **What better means**: 3–6 rubric criteria a reviewer can score from the output alone.
+## 1. Write the rubric first
 
-A good experiment has 2–4 variants:
+Before any run, create `examples/<example>/evals/rubric.md` and commit it. Never edit it after you have seen outputs; if it was wrong, write a new experiment.
 
-| Variant | Purpose |
-| --- | --- |
-| `baseline` | no skills: what the model does on its own |
-| `<skill>` | the skill under test alone |
-| `<other>` | the closest competing skill, if one exists |
-| `<skill>+<other>` or `category` | whether they stack, or what the whole category does |
+- **Question**: one sentence.
+- **Variants**: a table with `baseline` (no skills) and 1–4 skill sets.
+- **Task**: the exact prompt. It must not name the skill or use its vocabulary.
+- **Criteria (0–10 each)**: 3–6 qualities a reviewer can judge from the output alone.
+- **Assertions (pass/fail)**: atomic, checkable claims, for example "`index.html` exists" or "`bun run build` exits 0".
 
-## 2. Pick or create the project
+## 2. Write the skill-up suite
 
-Projects live in `examples/<name>/project/`. Reuse one when it fits; otherwise copy the closest and trim it. Keep projects tiny and dependency-free where possible so runs are fast and fair. Never put hints about the expected answer in the project.
+In `examples/<example>/`:
 
-## 3. Write the experiment
+- `project/`: the starting files. Keep them small, with no hints.
+- `evals/cases/<case>.yaml`: `input.prompt` (the task from the rubric), `context.repo_fixture: project`, `expect` gates, and a `judge` (`rule_based` on exit code, or `script` for a build or typecheck).
+- `evals/<variant>.yaml`, one per variant: `skills: []` for the baseline; otherwise one `local_path` entry per bank skill, with `target: .claude/skills/<skill-name>`. Copy an existing example and change only `skills`. Set `collect_artifacts` to the files the judge needs.
 
-`examples/<name>/experiments/<question>.json`:
-
-```json
-{
-  "name": "landing-taste",
-  "description": "Does design-taste-frontend beat frontend-design on a landing page?",
-  "project": "../project",
-  "promptFile": "../prompts/landing.md",
-  "variants": [
-    { "name": "baseline", "skills": [] },
-    { "name": "frontend-design", "skills": ["frontend-design"] },
-    { "name": "taste", "skills": ["design-taste-frontend"] },
-    { "name": "both", "skills": ["frontend-design", "design-taste-frontend"] }
-  ],
-  "runs": 2,
-  "capture": { "file": "index.html" },
-  "artifacts": ["**/*.html", "**/*.css", "**/*.md"],
-  "rubric": ["Distinct visual direction, not a template", "Typography and hierarchy", "Copy is specific to the product", "Responsive and accessible"]
-}
-```
-
-- `skills` takes bank skill names (`bun run list`), or `category/name` when a name is ambiguous.
-- `categories` loads every skill in a category (prefix match).
-- `check` runs a command after the agent (tests, build, lint) and records its exit code.
-- `capture` screenshots `file` or a `url` served by `start` (needs Playwright).
-
-Dry-run first; it resolves every skill and fails on typos:
+Find skill paths with `bun run list --json`. Check the suite:
 
 ```sh
-bun sandbox/run.ts examples/<name>/experiments/<question>.json --dry-run
+bun test                                    # configs resolve against the bank
+for f in examples/<example>/evals/*.yaml; do skill-up validate "$f"; done
 ```
 
-## 4. Run
+## 3. Run everything without supervision
+
+Same model for every variant, two or more iterations each. Run it in the background and do not stop between variants:
 
 ```sh
-bun sandbox/run.ts examples/<name>/experiments/<question>.json --runs 2 --judge
+ex=examples/<example>; model=sonnet
+for f in $ex/evals/*.yaml; do
+  v=$(basename "$f" .yaml)
+  skill-up run "$f" --model "$model" --iteration 2 --output-dir ".sandbox/$(basename $ex)/$v" || true
+done
 ```
 
-- Use `--runs 2` or more: one run per variant is an anecdote.
-- `--model` pins the model for every variant; never compare across models.
-- `--isolated-config` gives each variant a fresh `CLAUDE_CONFIG_DIR` (needs `ANTHROPIC_API_KEY`), so no user memory or plugins leak in. For full isolation run inside the sandbox container (`sandbox/README.md`).
-- `--harness fake` checks the pipeline offline.
+`|| true` keeps the loop going when a variant fails its gates; a failure is a result. Each run writes `result.json`, a transcript, and the collected files under `.sandbox/<example>/<variant>/iteration-N/`. Find the files with `find .sandbox/<example> -path '*outputs/workspace*' -type f`.
 
-## 5. Read the report
+## 4. Judge blind in this session
 
-Open `.sandbox/<name>/<timestamp>/report.md`:
+Load the `skill-ab-eval` skill and follow its agent-native judge protocol. Use the rubric exactly as written in step 1:
 
-1. **Skills used**: if the arm never opened the skill, the result says nothing about the skill. Fix the description or prompt, not the verdict.
-2. **Check / exit codes**: a failing build beats any rubric score.
-3. **Judge table**: blind scores from `--judge`. Spot-check by opening the screenshots and diffs yourself; judges favor longer output.
-4. **Cost and time**: a skill that doubles cost for a small gain may not belong in the default category.
+1. For each iteration, collect each variant's `outputs/workspace` tree. Copy them into a scratch folder as `candidate-A`, `candidate-B`, and so on, in random order. Keep the label-to-variant map to yourself.
+2. Spawn one fresh judge subagent per iteration. Give it the task, the criteria and the assertions from `rubric.md`, and the candidate folders. Nothing else: no variant names, transcripts or skill names. With more than two candidates, use independent per-output grading. For visual work, the judge may render pages with Playwright (`require('playwright')`) and look at the screenshots.
+3. The judge returns strict JSON: per candidate, `assertions: [bool]`, `scores: {criterion: 0-10}` and a one-line note. For close calls, judge again with the order shuffled and average the two.
+4. Unblind. Per variant: assertion pass rate, mean normalized score (sum of criteria divided by 10 × number of criteria), and the skill-up gate result from `result.json`.
+5. Lift = variant − baseline. Read it with skill-ab-eval's verdict table: ≥ +0.20 clear positive, +0.05 to +0.20 marginal, ±0.05 no measurable effect, ≤ −0.05 negative.
 
-## 6. Record the verdict
+Also check whether each skill was used: search the transcripts for the skill name, a `Skill` tool call, or a read of its `SKILL.md`. If a variant never opened its skill, its score says nothing about that skill.
 
-Append to `examples/<name>/RESULTS.md`: date, model, variants, runs, median scores, and one of:
+## 5. Record the verdict
 
-- **keep**: clear win, the skill stays in its category.
-- **narrow**: wins only on some prompts; tighten its description or move it to a narrower category in `skillset.json`.
-- **drop**: no difference or worse; remove it from `skillset.json` and run `bun run sync`.
+Append to `examples/<example>/RESULTS.md`: date, model, iterations, a table of variants with pass rate, score, lift, cost and time, and one verdict per skill:
 
-Change one thing at a time and rerun the same experiment after any description or bank change.
+- **keep**: clear positive lift; the skill stays in its category.
+- **narrow**: helps only on some tasks; tighten its description or move it in `skillset.json`.
+- **drop**: no effect or negative; remove it from `skillset.json` and run `bun run sync`.
+
+Report raw numbers and the sample size. Two iterations show a direction, not statistical significance.

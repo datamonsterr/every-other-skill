@@ -1,0 +1,25 @@
+# Generated from the experiment design; one skill-up config per variant.
+# Variant: frontend-design (1 skills)
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: ../../.otherskill/bank/design/frontend/frontend-design--0d66d75a20d565c1
+    target: .claude/skills/frontend-design
+engine:
+  name: claude_code
+  model: {}
+cases:
+  files:
+    - evals/cases/landing.yaml
+  defaults:
+    collect_artifacts:
+      - "**/*.html"
+      - "**/*.css"
+  parallelism: 1
+benchmark:
+  enabled: false
+report:
+  formats: [json, html]
+  artifacts: [transcript]

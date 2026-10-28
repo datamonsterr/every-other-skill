@@ -1,1 +1,0 @@
-Build the marketing landing page for the business in PRODUCT.md. Replace index.html with the finished page. Use plain HTML and CSS (inline or in styles.css next to it); no build step and no external JavaScript frameworks. It must work at phone and desktop widths. Use only facts from PRODUCT.md.

@@ -1,0 +1,20 @@
+id: stack
+title: "Tech stack and prototype for a shop assistant service"
+input:
+  prompt: |
+    Read REQUIREMENTS.md. Choose the tech stack (language, framework, database, LLM access, hosting, testing) and write STACK.md with each choice, the alternatives you rejected and why, and the risks. Then add the smallest runnable prototype of the HTTP API in prototype/ that proves the riskiest choice works, with instructions to run it.
+context:
+  repo_fixture: project
+  git:
+    init: true
+constraints:
+  timeout_seconds: 1800
+  max_turns: 60
+expect:
+  exit_code: 0
+  files_exist:
+    - STACK.md
+judge:
+  type: rule_based
+  success:
+    - exit_code: 0

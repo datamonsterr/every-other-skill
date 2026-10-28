@@ -1,0 +1,60 @@
+# Generated from the experiment design; one skill-up config per variant.
+# Variant: discovery-category (13 skills)
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/brainstorm-experiments-new--ce84997f5fdb4d59
+    target: .claude/skills/brainstorm-experiments-new
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/brainstorming--b10b8f078dd3ebb9
+    target: .claude/skills/brainstorming
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/competitor-analysis--a6e0c0bb176ad009
+    target: .claude/skills/competitor-analysis
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/customer-journey-map--f705aeb99f930de5
+    target: .claude/skills/customer-journey-map
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/grill-me--22cbf36b8a6408e6
+    target: .claude/skills/grill-me
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/in-your-own-words--0b459ff8a75d1e1a
+    target: .claude/skills/in-your-own-words
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/lean-canvas--fa2148207dd25bd6
+    target: .claude/skills/lean-canvas
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/market-research--1f16d8d243c4c392
+    target: .claude/skills/market-research
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/market-sizing--c6d2196e6268acda
+    target: .claude/skills/market-sizing
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/opportunity-solution-tree--dcd0476bb3ebfbdb
+    target: .claude/skills/opportunity-solution-tree
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/product-lens--62cc210d7ab52600
+    target: .claude/skills/product-lens
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/user-personas--d9cdb953a548fea7
+    target: .claude/skills/user-personas
+  - source: local_path
+    path: ../../.otherskill/bank/product/discovery/value-proposition--cb6a1bcba0c9e0e7
+    target: .claude/skills/value-proposition
+engine:
+  name: claude_code
+  model: {}
+cases:
+  files:
+    - evals/cases/discovery.yaml
+  defaults:
+    collect_artifacts:
+      - "**/*.md"
+  parallelism: 1
+benchmark:
+  enabled: false
+report:
+  formats: [json, html]
+  artifacts: [transcript]
