@@ -9,6 +9,7 @@
  *     [--judge] [--judge-model opus] [--out .sandbox] [--dry-run]
  */
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { argValue, bankPath, repoRoot } from "../scripts/lib.ts";
 import {
@@ -288,8 +289,11 @@ async function runOne(variant: Variant, run: number): Promise<RunRecord> {
 /** Blind judge: candidates are relabelled A, B, C... in random order. */
 async function judge(records: RunRecord[]): Promise<string | undefined> {
   if (!args.includes("--judge")) return;
-  const dir = path.join(outRoot, "judge");
-  fs.mkdirSync(dir, { recursive: true });
+  // Judge in a directory outside the run folder so it cannot see variant names.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sandbox-judge-"));
+  fs.cpSync(exp.projectDir, path.join(dir, "original-project"), {
+    recursive: true,
+  });
   const shuffled = [...records].sort(() => Math.random() - 0.5);
   const labels = new Map<string, RunRecord>();
   shuffled.forEach((r, i) => {
@@ -321,6 +325,7 @@ async function judge(records: RunRecord[]): Promise<string | undefined> {
     .join("\n");
   const prompt = `You are judging ${labels.size} anonymous candidate results for the same task.
 Each candidate is a folder candidate-<LETTER> in the current directory (screenshot.png when present).
+original-project/ holds the project every candidate started from. Stay inside the current directory.
 Read every candidate before scoring. Do not guess how each was produced.
 
 Task given to every candidate:
@@ -359,6 +364,8 @@ Reply with a Markdown table (candidate x criterion, plus total), a ranking, and 
     .join("\n");
   const out = `${text.trim()}\n\n**Unblinded:**\n\n${key}\n`;
   fs.writeFileSync(path.join(dir, "judge.md"), out);
+  fs.cpSync(dir, path.join(outRoot, "judge"), { recursive: true });
+  fs.rmSync(dir, { recursive: true, force: true });
   return out;
 }
 
