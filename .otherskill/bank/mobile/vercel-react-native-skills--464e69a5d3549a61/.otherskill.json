@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "464e69a5d3549a610660f67f1a07e836a09c39ef757bcfba3a57aa35078b301b",
+  "source": "https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/react-native-skills",
+  "ref": "HEAD",
+  "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "category": "mobile",
+  "installedAt": "2026-10-28T05:03:24.000Z"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "architecture",
+  "description": "Matt Pocock's design skills vs ECC's architecture skills vs none, on the same sync design task.",
+  "project": "../project",
+  "promptFile": "../prompts/architecture.md",
+  "variants": [
+    { "name": "baseline", "skills": [] },
+    { "name": "pocock", "skills": ["codebase-design", "domain-modeling"] },
+    { "name": "ecc", "skills": ["architecture-decision-records", "api-design", "hexagonal-architecture"] },
+    { "name": "architecture-category", "categories": ["architecture"] }
+  ],
+  "runs": 2,
+  "artifacts": ["**/*.md"],
+  "rubric": [
+    "Idempotency and exactly-once counting are handled concretely (ids, dedupe, retries)",
+    "Module boundaries are few, deep and justified for a part-time maintainer",
+    "Data model records the price actually charged and handles concurrent tills",
+    "ADRs state context, options considered and consequences",
+    "No over-engineering beyond the spec"
+  ]
+}

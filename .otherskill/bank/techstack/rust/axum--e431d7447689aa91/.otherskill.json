@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "e431d7447689aa91794ced8850e7bf481891121870f6223b9bc61879fea3f28a",
+  "source": "https://github.com/TerminalSkills/skills/tree/HEAD/skills/axum",
+  "ref": "HEAD",
+  "revision": "3bfbf7f76459d89422eddc0e5f572ad0e6c393c9",
+  "category": "techstack/rust",
+  "installedAt": "2026-10-28T05:03:33.144Z"
+}

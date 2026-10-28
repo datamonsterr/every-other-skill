@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "0d66d75a20d565c1c7178edf8bf87c2c5091abff4980389d036e0e4cb8875677",
+  "source": "https://github.com/anthropics/skills/tree/HEAD/skills/frontend-design",
+  "ref": "HEAD",
+  "revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+  "category": "design/frontend",
+  "installedAt": "2026-10-28T05:03:21.394Z"
+}

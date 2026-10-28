@@ -1,0 +1,66 @@
+{
+  "bankPath": ".otherskill/bank",
+  "model": "inception/mercury-decide:free",
+  "scope": "project",
+  "agent": "claude",
+  "agents": ["claude"],
+  "portableHooks": true,
+  "categories": [
+    {
+      "id": "product/discovery",
+      "description": "Product discovery: problem framing, user research and interviews, jobs-to-be-done, personas, journey maps, market sizing, competitor research, opportunity trees and validation experiments"
+    },
+    {
+      "id": "product/spec",
+      "description": "Product definition: PRDs, specs, user stories, acceptance criteria, tickets, prioritization, pre-mortems and grilling a plan before building"
+    },
+    {
+      "id": "design/frontend",
+      "description": "Frontend visual and interaction design: art direction, taste, anti-generic UI, landing pages, design systems and tokens, typography, color, motion, accessibility and UI polish"
+    },
+    {
+      "id": "architecture",
+      "description": "System architecture: domain modeling, deep modules, module boundaries, ADRs, API and contract design, hexagonal and clean architecture, backend patterns"
+    },
+    {
+      "id": "techstack",
+      "description": "Technology selection and tooling: research before choosing libraries, prototypes, TypeScript, Bun, Postgres, migrations, Docker, deployment, MCP servers and OpenRouter"
+    },
+    {
+      "id": "techstack/rust",
+      "description": "Rust: idioms, error handling, concurrency, tokio, axum web services, clap CLIs and rusqlite/SQLite"
+    },
+    {
+      "id": "web",
+      "description": "Web app engineering: React, Next.js, Vite, component composition, performance, SEO, browser and E2E testing, Vercel deployment"
+    },
+    {
+      "id": "mobile",
+      "description": "Mobile apps: Expo, React Native, Expo Router and React Navigation, native UI, animations, data fetching, EAS builds and app store submission, SwiftUI, Android and Flutter"
+    },
+    {
+      "id": "testing",
+      "description": "Testing and verification: test-driven development, debugging, code review and proving work is done"
+    },
+    {
+      "id": "skills",
+      "description": "Agent skills: finding, installing, writing, evaluating and A/B testing skills and skill sets"
+    },
+    {
+      "id": "workflow",
+      "description": "Agent workflow: implementation plans, subagent orchestration, superorchestrator, git worktrees, parallel agents and handoffs"
+    }
+  ],
+  "limits": {
+    "concurrency": 4,
+    "retries": 1,
+    "retryDelayMs": 250,
+    "timeoutMs": 10000,
+    "maxRequestBytes": 60000,
+    "maxCandidates": 200,
+    "categoryThreshold": 0.05,
+    "skillThreshold": 0.05,
+    "maxCategories": 20,
+    "maxSkills": 10
+  }
+}

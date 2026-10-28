@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "d9993d048c6d280acf164ec9a6e9031501afea5cbd4d203be2ec67190d5c7ef4",
+  "source": "https://github.com/datamonsterr/superorchestrator/tree/HEAD/plugin/skills/use-superorchestrator-mcp",
+  "ref": "HEAD",
+  "revision": "f394dd258425ec7429a9fb25302d9d0e8e2a6418",
+  "category": "workflow",
+  "installedAt": "2026-10-28T05:03:40.396Z"
+}

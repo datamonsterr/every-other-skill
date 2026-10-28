@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "a4e0420d9490a9e9b4cd11bc6d4d35002809466196ba74d07dc1b68f3cec5ca3",
+  "source": "https://github.com/datamonsterr/superorchestrator/tree/HEAD/plugin/skills/superorchestrator-cli",
+  "ref": "HEAD",
+  "revision": "f394dd258425ec7429a9fb25302d9d0e8e2a6418",
+  "category": "workflow",
+  "installedAt": "2026-10-28T05:03:40.691Z"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "techstack",
+  "description": "Do research-first and stack skills lead to better justified, verified stack choices?",
+  "project": "../project",
+  "promptFile": "../prompts/stack.md",
+  "variants": [
+    { "name": "baseline", "skills": [] },
+    { "name": "research-first", "skills": ["search-first", "research", "prototype"] },
+    { "name": "techstack-category", "categories": ["techstack"] }
+  ],
+  "runs": 2,
+  "artifacts": ["**/*.md", "prototype/**/*"],
+  "rubric": [
+    "Choices fit the constraints (budget, one developer, TypeScript now, Rust later)",
+    "Rejected alternatives and risks are concrete",
+    "The prototype targets the riskiest choice and its run instructions work",
+    "Backup and restore are addressed",
+    "No invented library APIs or versions"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "web-app",
+  "description": "Do React skills improve structure and correctness of a small React feature?",
+  "project": "../project",
+  "promptFile": "../prompts/catalog.md",
+  "variants": [
+    { "name": "baseline", "skills": [] },
+    { "name": "vercel", "skills": ["vercel-react-best-practices", "vercel-composition-patterns"] },
+    { "name": "web-category", "categories": ["web"] }
+  ],
+  "runs": 2,
+  "check": "bun install --silent && bun run build",
+  "capture": { "url": "http://localhost:4173", "start": "bunx vite --port 4173 --strictPort" },
+  "artifacts": ["src/**/*"],
+  "rubric": [
+    "Build passes and behavior matches the prompt (search, filter, cart, stock)",
+    "Component structure and state management are simple and idiomatic",
+    "Money is formatted correctly in VND and totals are exact",
+    "Accessible controls (labels, buttons, keyboard)",
+    "No unnecessary dependencies or abstractions"
+  ]
+}

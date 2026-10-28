@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "b278c7b46a7d49ae10dc8dbce0768f3167939e7b5157e39875d4e08915641400",
+  "source": "https://github.com/callstackincubator/agent-skills/tree/HEAD/skills/react-native-best-practices",
+  "ref": "HEAD",
+  "revision": "59e9d17446a248b21d86f078fcd0bd2d36db1ca4",
+  "category": "mobile",
+  "installedAt": "2026-10-28T05:03:29.507Z"
+}

@@ -1,0 +1,558 @@
+{
+  "$schema": "./schemas/skillset.schema.json",
+  "version": 1,
+  "self": "https://github.com/datamonsterr/every-other-skill/tree/main",
+  "sources": [
+    {
+      "repo": "affaan-m/ecc",
+      "label": "ECC (Everything Claude Code)",
+      "skills": [
+        {
+          "path": "skills/product-lens",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "skills/market-research",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "skills/product-capability",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "skills/intent-driven-development",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "skills/make-interfaces-feel-better",
+          "categories": ["design/frontend"]
+        },
+        {
+          "path": "skills/design-system",
+          "categories": ["design/frontend"]
+        },
+        {
+          "path": "skills/accessibility",
+          "categories": ["design/frontend", "mobile"]
+        },
+        {
+          "path": "skills/motion-foundations",
+          "categories": ["design/frontend"]
+        },
+        {
+          "path": "skills/architecture-decision-records",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/api-design",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/hexagonal-architecture",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/contract-first",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/backend-patterns",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/search-first",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/postgres-patterns",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/database-migrations",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/docker-patterns",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/deployment-patterns",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/rust-patterns",
+          "categories": ["techstack/rust"]
+        },
+        {
+          "path": "skills/react-patterns",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/nextjs-turbopack",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/react-testing",
+          "categories": ["web", "testing"]
+        },
+        {
+          "path": "skills/e2e-testing",
+          "categories": ["web", "testing"]
+        },
+        {
+          "path": "skills/seo",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/react-native-patterns",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "skills/swiftui-patterns",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "skills/dart-flutter-patterns",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "skills/android-clean-architecture",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "skills/agent-eval",
+          "categories": ["skills"]
+        },
+        {
+          "path": "skills/skill-comply",
+          "categories": ["skills"]
+        },
+        {
+          "path": "skills/skill-scout",
+          "categories": ["skills"]
+        }
+      ]
+    },
+    {
+      "repo": "cursor/plugins",
+      "label": "pstack (Cursor plugins)",
+      "skills": [
+        {
+          "path": "pstack/skills/in-your-own-words",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pstack/skills/architect",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "pstack/skills/principle-foundational-thinking",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "pstack/skills/typescript-best-practices",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "pstack/skills/create-verification-skill",
+          "categories": ["testing"]
+        },
+        {
+          "path": "pstack/skills/principle-prove-it-works",
+          "categories": ["testing"]
+        },
+        {
+          "path": "pstack/skills/arena",
+          "categories": ["workflow"]
+        }
+      ],
+      "licenseFile": "pstack/LICENSE"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "label": "Taste Skill",
+      "skills": [
+        {
+          "path": "skills/taste-skill",
+          "categories": ["design/frontend"]
+        }
+      ]
+    },
+    {
+      "repo": "mattpocock/skills",
+      "label": "Matt Pocock skills",
+      "skills": [
+        {
+          "path": "skills/productivity/grill-me",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "skills/engineering/to-spec",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "skills/engineering/to-tickets",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "skills/engineering/grill-with-docs",
+          "categories": ["product/spec", "architecture"]
+        },
+        {
+          "path": "skills/engineering/codebase-design",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/engineering/domain-modeling",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/engineering/improve-codebase-architecture",
+          "categories": ["architecture"]
+        },
+        {
+          "path": "skills/engineering/prototype",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/engineering/research",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/engineering/tdd",
+          "categories": ["testing"]
+        },
+        {
+          "path": "skills/engineering/diagnosing-bugs",
+          "categories": ["testing"]
+        },
+        {
+          "path": "skills/engineering/code-review",
+          "categories": ["testing"]
+        },
+        {
+          "path": "skills/productivity/writing-for-agents",
+          "categories": ["skills"]
+        },
+        {
+          "path": "skills/productivity/handoff",
+          "categories": ["workflow"]
+        }
+      ]
+    },
+    {
+      "repo": "phuryn/pm-skills",
+      "label": "PM Skills (Pawe\u0142 Huryn)",
+      "skills": [
+        {
+          "path": "pm-product-discovery/skills/opportunity-solution-tree",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-product-discovery/skills/brainstorm-experiments-new",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-market-research/skills/user-personas",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-market-research/skills/competitor-analysis",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-market-research/skills/market-sizing",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-market-research/skills/customer-journey-map",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-product-strategy/skills/value-proposition",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-product-strategy/skills/lean-canvas",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "pm-execution/skills/create-prd",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "pm-execution/skills/user-stories",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "pm-execution/skills/pre-mortem",
+          "categories": ["product/spec"]
+        },
+        {
+          "path": "pm-execution/skills/prioritization-frameworks",
+          "categories": ["product/spec"]
+        }
+      ]
+    },
+    {
+      "repo": "obra/superpowers",
+      "label": "Superpowers",
+      "skills": [
+        {
+          "path": "skills/brainstorming",
+          "categories": ["product/discovery"]
+        },
+        {
+          "path": "skills/systematic-debugging",
+          "categories": ["testing"]
+        },
+        {
+          "path": "skills/verification-before-completion",
+          "categories": ["testing"]
+        },
+        {
+          "path": "skills/writing-skills",
+          "categories": ["skills"]
+        },
+        {
+          "path": "skills/writing-plans",
+          "categories": ["workflow"]
+        },
+        {
+          "path": "skills/using-git-worktrees",
+          "categories": ["workflow"]
+        },
+        {
+          "path": "skills/dispatching-parallel-agents",
+          "categories": ["workflow"]
+        }
+      ]
+    },
+    {
+      "repo": "anthropics/skills",
+      "label": "Anthropic skills",
+      "skills": [
+        {
+          "path": "skills/frontend-design",
+          "categories": ["design/frontend"]
+        },
+        {
+          "path": "skills/webapp-testing",
+          "categories": ["web", "testing"]
+        },
+        {
+          "path": "skills/mcp-builder",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/skill-creator",
+          "categories": ["skills"]
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "label": "Vercel agent skills",
+      "skills": [
+        {
+          "path": "skills/web-design-guidelines",
+          "categories": ["design/frontend"]
+        },
+        {
+          "path": "skills/react-best-practices",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/composition-patterns",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/deploy-to-vercel",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/react-native-skills",
+          "categories": ["mobile"]
+        }
+      ],
+      "license": "MIT"
+    },
+    {
+      "repo": "vercel-labs/skills",
+      "label": "Vercel skills CLI",
+      "skills": [
+        {
+          "path": "skills/find-skills",
+          "categories": ["skills"]
+        }
+      ]
+    },
+    {
+      "repo": "expo/skills",
+      "label": "Expo skills",
+      "skills": [
+        {
+          "path": "plugins/expo/skills/expo-overview",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-project-structure",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-router",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-native-ui",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-design-system",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-animation",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-data-fetching",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/eas-app-stores",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "plugins/expo/skills/expo-upgrade",
+          "categories": ["mobile"]
+        }
+      ]
+    },
+    {
+      "repo": "callstackincubator/agent-skills",
+      "label": "Callstack React Native skills",
+      "skills": [
+        {
+          "path": "skills/react-native-best-practices",
+          "categories": ["mobile"]
+        },
+        {
+          "path": "skills/react-navigation",
+          "categories": ["mobile"]
+        }
+      ]
+    },
+    {
+      "repo": "TerminalSkills/skills",
+      "label": "TerminalSkills (used in superorchestrator)",
+      "skills": [
+        {
+          "path": "skills/react",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/vite",
+          "categories": ["web"]
+        },
+        {
+          "path": "skills/axum",
+          "categories": ["techstack/rust"]
+        }
+      ]
+    },
+    {
+      "repo": "actionbook/rust-skills",
+      "label": "Rust skills (used in superorchestrator)",
+      "skills": [
+        {
+          "path": "skills/coding-guidelines",
+          "categories": ["techstack/rust"]
+        },
+        {
+          "path": "skills/m06-error-handling",
+          "categories": ["techstack/rust"]
+        },
+        {
+          "path": "skills/m07-concurrency",
+          "categories": ["techstack/rust"]
+        },
+        {
+          "path": "skills/domain-web",
+          "categories": ["techstack/rust"]
+        },
+        {
+          "path": "skills/domain-cli",
+          "categories": ["techstack/rust"]
+        }
+      ],
+      "license": "MIT"
+    },
+    {
+      "repo": "claude-dev-suite/claude-dev-suite",
+      "label": "Claude Dev Suite (used in superorchestrator)",
+      "skills": [
+        {
+          "path": "skills/databases/rusqlite",
+          "categories": ["techstack/rust"]
+        }
+      ]
+    },
+    {
+      "repo": "dmythro/agent-skills",
+      "label": "Bun skills (used in other-skill)",
+      "skills": [
+        {
+          "path": "skills/bun-cli",
+          "categories": ["techstack"]
+        },
+        {
+          "path": "skills/bun-api",
+          "categories": ["techstack"]
+        }
+      ]
+    },
+    {
+      "repo": "nateslabach/skills",
+      "label": "OpenRouter skill (used in other-skill)",
+      "skills": [
+        {
+          "path": "skills/openrouter",
+          "categories": ["techstack"]
+        }
+      ]
+    },
+    {
+      "repo": "datamonsterr/superorchestrator",
+      "label": "superorchestrator",
+      "skills": [
+        {
+          "path": "plugin/skills/use-superorchestrator-mcp",
+          "categories": ["workflow"]
+        },
+        {
+          "path": "plugin/skills/superorchestrator-cli",
+          "categories": ["workflow"]
+        },
+        {
+          "path": "plugin/skills/superorchestrator-config",
+          "categories": ["workflow"]
+        },
+        {
+          "path": ".claude/skills/subagent-driven-development",
+          "categories": ["workflow"]
+        }
+      ]
+    },
+    {
+      "local": true,
+      "label": "Authored in this repository",
+      "skills": [
+        {
+          "path": "skills/test-skill",
+          "categories": ["skills", "testing"]
+        }
+      ]
+    }
+  ]
+}

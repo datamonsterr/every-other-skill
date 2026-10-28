@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "660ccccb7433f147168d35cdc1c4716774ef265cb47d1684a091d07c96c4f3dc",
+  "source": "https://github.com/dmythro/agent-skills/tree/HEAD/skills/bun-cli",
+  "ref": "HEAD",
+  "revision": "2d5c185a46059ae8b2f953d06503f6d2281c4dfd",
+  "category": "techstack",
+  "installedAt": "2026-10-28T05:03:37.938Z"
+}

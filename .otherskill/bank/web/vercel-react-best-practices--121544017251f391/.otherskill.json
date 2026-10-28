@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "121544017251f3911dca4839ca83955a95299fcd349a607d60f84e8ed3a02655",
+  "source": "https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/react-best-practices",
+  "ref": "HEAD",
+  "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "category": "web",
+  "installedAt": "2026-10-28T05:03:23.247Z"
+}

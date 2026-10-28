@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "07f38a881b1625f90a93db12bf9369dcedd2f6f632971744dd783b1449db3112",
+  "source": "https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/composition-patterns",
+  "ref": "HEAD",
+  "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "category": "web",
+  "installedAt": "2026-10-28T05:03:23.493Z"
+}

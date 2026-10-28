@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "c31a853365c2ac2bcfd2941e96fa9e20481855c6dd25af4ba35fe2dd6759471a",
+  "source": "https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/web-design-guidelines",
+  "ref": "HEAD",
+  "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "category": "design/frontend",
+  "installedAt": "2026-10-28T05:03:23.002Z"
+}

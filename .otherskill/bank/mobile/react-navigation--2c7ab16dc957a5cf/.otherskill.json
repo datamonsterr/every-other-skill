@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "2c7ab16dc957a5cfe52c07fa4fb09329854e7f4f14dbaf94d2b90bcebf1e2378",
+  "source": "https://github.com/callstackincubator/agent-skills/tree/HEAD/skills/react-navigation",
+  "ref": "HEAD",
+  "revision": "59e9d17446a248b21d86f078fcd0bd2d36db1ca4",
+  "category": "mobile",
+  "installedAt": "2026-10-28T05:03:29.772Z"
+}

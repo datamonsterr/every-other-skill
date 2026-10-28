@@ -1,0 +1,1 @@
+In this Vite + React + TypeScript app, build the shop's checkout screen using src/products.ts: a searchable, category-filterable product grid, a cart with quantities and a running total in VND, out-of-stock handling, and a "complete sale" action that clears the cart and decrements stock in state. Keep it in this app (no new runtime dependencies). `bun run build` must pass.

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "99a59c4e5c74b7d8ec829fc1dfd02f6e6065170b5ce6409db54cca18e72b60cd",
+  "source": "https://github.com/cursor/plugins/tree/HEAD/pstack/skills/create-verification-skill",
+  "ref": "HEAD",
+  "revision": "c742dd61706fbacc1b95f1a20b7b988cf096ce6c",
+  "category": "testing",
+  "installedAt": "2026-10-28T05:03:09.519Z"
+}

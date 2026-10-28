@@ -1,0 +1,1 @@
+Read REQUIREMENTS.md. Choose the tech stack (language, framework, database, LLM access, hosting, testing) and write STACK.md with each choice, the alternatives you rejected and why, and the risks. Then add the smallest runnable prototype of the HTTP API in prototype/ that proves the riskiest choice works, with instructions to run it.

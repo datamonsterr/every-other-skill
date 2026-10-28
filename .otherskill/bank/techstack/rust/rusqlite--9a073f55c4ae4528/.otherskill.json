@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "9a073f55c4ae4528b9784b6b8702e32f70e6a0aedbe11549ae1df1dea303e86c",
+  "source": "https://github.com/claude-dev-suite/claude-dev-suite/tree/HEAD/skills/databases/rusqlite",
+  "ref": "HEAD",
+  "revision": "e10ab644ba43abe2abc923399226df4af7337214",
+  "category": "techstack/rust",
+  "installedAt": "2026-10-28T05:03:37.039Z"
+}

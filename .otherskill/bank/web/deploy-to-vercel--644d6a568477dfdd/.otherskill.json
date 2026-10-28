@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "logicalId": "644d6a568477dfdd1fcab5565c58aa5e243da423eaa120578d624c63837f7408",
+  "source": "https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/deploy-to-vercel",
+  "ref": "HEAD",
+  "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "category": "web",
+  "installedAt": "2026-10-28T05:03:23.742Z"
+}

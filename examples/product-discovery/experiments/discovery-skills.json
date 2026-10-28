@@ -1,0 +1,21 @@
+{
+  "name": "product-discovery",
+  "description": "Do product discovery skills produce sharper problem framing and testable assumptions than the model alone?",
+  "project": "../project",
+  "promptFile": "../prompts/discovery.md",
+  "variants": [
+    { "name": "baseline", "skills": [] },
+    { "name": "pm-skills", "skills": ["opportunity-solution-tree", "user-personas", "brainstorm-experiments-new"] },
+    { "name": "product-lens", "skills": ["product-lens"] },
+    { "name": "discovery-category", "categories": ["product/discovery"] }
+  ],
+  "runs": 2,
+  "artifacts": ["**/*.md"],
+  "rubric": [
+    "Users and their jobs are specific to this shop, not generic personas",
+    "Problems are ranked and separated from solutions",
+    "Assumptions are explicit and each has a cheap, concrete test",
+    "First-version scope is small and justified",
+    "Facts from the brief are not contradicted or invented"
+  ]
+}
